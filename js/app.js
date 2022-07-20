@@ -99,7 +99,7 @@ function openAll(){
 }
 
 
-function changeSmile(path = '../img/smile.jpg'){
+function changeSmile(path = 'img/smile.jpg'){
     var smile = document.querySelector('.smile')
     smile.src = path
 }
@@ -115,7 +115,7 @@ function onCellClicked(elCell,i,j){
             clearInterval(gGameInterval)
             renderBoard  (gBoard)
             alert        ('U lose')
-            changeSmile  ('/img/explodejpg.jpg')
+            changeSmile  ('img/explodejpg.jpg')
             gTimeout = setTimeout(initGame,2000)
         } else {
             LIVES --
@@ -140,7 +140,7 @@ function onCellClicked(elCell,i,j){
         clearInterval(gGameInterval)
         alert        ('WON')
         openAll      ()
-        changeSmile  ('/img/wining.jpg')
+        changeSmile  ('img/wining.jpg')
         gTimeout = setTimeout(initGame,2000)
     }
 }
