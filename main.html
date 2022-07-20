@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MinesWeeper</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="initGame()">
+    <!-- <button class = 'restart hide' onclick="restartGame()">Restart</button> -->
+    <h1>MinesWeeper</h1>
+    <div class = 'timer'>Timer: <span> 0.0 </span></div>
+
+    <table class = difficulties id= "difficulties"> Add difficulties
+        <td>
+            <button class = "4" onclick="addDifficulties(this)">Easy (4)   </button>
+            <button class = "8" onclick="addDifficulties(this)">Hard (8)   </button>
+            <button class = "12" onclick="addDifficulties(this)">Extrime (12)</button>
+        </td>
+    </table>
+
+    <img onclick="initGame()" class = 'smile' src="img/smile.jpg" />
+
+    <div class = 'lives'>lives: <span> 3 </span></div>
+
+    <table>
+     <tbody class="board"></tbody>
+    </table>
+    <script src="js/app.js"></script>
+    <script src="js/util.js"></script>
+</body>
+
+</html>
