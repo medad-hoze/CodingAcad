@@ -1,7 +1,8 @@
+"use strict";
 
 
 var BOMB  = '💣'
-var FLAG  = 'F'
+var FLAG  = '🚩'
 var LIVES = 3
 
 var gBoardSize = {SIZE:4,BOMBS:2}
@@ -14,6 +15,7 @@ var gGameInterval
 var gTimeout
 
 var gTotalMarkes = 0
+var gGisplayTime = 0
 
 function initGame(){
 
@@ -141,6 +143,7 @@ function onCellClicked(elCell,i,j){
         alert        ('WON')
         openAll      ()
         changeSmile  ('img/wining.jpg')
+        getBestScore (gGisplayTime)
         gTimeout = setTimeout(initGame,2000)
     }
 }
@@ -240,8 +243,8 @@ var restartTime = () => document.querySelector('.timer span').innerHTML = '0.0'
 function setTimer(){
 
     var diffTime = (Date.now() - gStartTime)/1000
-    var displayTime = diffTime.toFixed(3)  
-    document.querySelector('.timer span').innerHTML = displayTime
+    gGisplayTime = diffTime.toFixed(3)  
+    document.querySelector('.timer span').innerHTML = gGisplayTime
 
 }
 
@@ -254,4 +257,19 @@ function startTimer(){
 function livesCounter(){
     var live = document.querySelector('.lives span')
     live.innerHTML = LIVES
+}
+
+
+function getBestScore(ScoreNew){
+
+    var elScore = document.querySelector('.bestscore span')
+
+    if (!elScore.innerHTML) elScore.innerHTML = 9999
+
+    if (+elScore.innerHTML > +ScoreNew) {
+    localStorage.setItem("score", ScoreNew);
+    var score = localStorage.getItem("score");
+    elScore.innerHTML = score
+    console.log(score)
+    }
 }
